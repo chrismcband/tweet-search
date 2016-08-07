@@ -1,13 +1,17 @@
 import React, { PropTypes } from 'react';
 import './TweetAuthor.css';
 
+const propTypes = {
+  user: PropTypes.object.isRequired
+}
+
 function TweetAuthor(props) {
   return (
     <div className="TweetAuthor">
       <div className="TweetAuthor__avatar">
         <img
           src={props.user.profile_image_url}
-          alt={`Profile photo for ${props.user.screen_name}`}
+          alt={`Avatar for ${props.user.screen_name}`}
         />
       </div>
       <div className="TweetAuthor__name_container">
@@ -18,5 +22,7 @@ function TweetAuthor(props) {
     </div>
   )
 }
+
+TweetAuthor.propTypes = propTypes;
 
 export default TweetAuthor;

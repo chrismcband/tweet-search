@@ -1,6 +1,7 @@
 .Tweet {
   border: 1px solid #CCC;
   border-radius: 6px;
+  background: white;
   padding: 20px;
   margin: 15px;
   text-align: left;

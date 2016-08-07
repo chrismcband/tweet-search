@@ -2,25 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Search from './components/Search';
 import TweetList from './components/TweetList';
-import API from './Api';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchTweets } from './actions';
+import { searchedTweets } from './selectors';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { searchText: '', tweets: [] };
-
-    this.onSearch = this.onSearch.bind(this);
-  }
-
-  onSearch(searchText) {
-    const _this = this;
-    this.setState({ searchText: searchText });
-    API.search(searchText).then(function (tweets){
-      console.log("Found these tweets: ", tweets);
-      _this.setState({ tweets });
-    });
-  }
-
   render() {
     return (
       <div className="App">
@@ -30,12 +17,15 @@ class App extends Component {
         <p className="App-intro">
           Search for tweets and see the results appear below.
         </p>
-        <Search onSearch={this.onSearch} />
+        <Search
+          onSearch={this.props.fetchTweets}
+          searchText={this.props.searchText}
+        />
 
         <div className="search-results">
           {
-            this.state.searchText ?
-            <TweetList tweets={this.state.tweets} /> :
+            this.props.searchText ?
+            <TweetList tweets={this.props.tweets} /> :
             <p className="placeholder">Nothing to show yet, try a search</p>
           }
         </div>
@@ -45,4 +35,17 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    tweets: searchedTweets(state),
+    searchText: state.search.searchText
+  }
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return bindActionCreators({ fetchTweets }, dispatch);
+}
+
+const AppConnected = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default AppConnected;

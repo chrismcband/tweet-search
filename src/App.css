@@ -14,8 +14,14 @@
 }
 
 .search-results {
-  width: 500px;
+  position: absolute;
   margin: 0 auto;
+  width: 500px;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  top: 240px;
+  overflow: auto;
 }
 
 .search-results .placeholder {
