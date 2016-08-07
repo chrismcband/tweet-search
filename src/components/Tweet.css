@@ -1,0 +1,11 @@
+.Tweet {
+  border: 1px solid #CCC;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 15px;
+  text-align: left;
+}
+
+.Tweet__header {
+  position: relative;
+}

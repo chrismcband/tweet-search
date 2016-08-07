@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
   height: 80px;
@@ -18,7 +13,18 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.search-results {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.search-results .placeholder {
+  font-style: italic;
+  color: grey;
+}
+
+@media (max-width: 500px) {
+  .search-results {
+    width: 100%;
+  }
 }

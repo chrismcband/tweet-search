@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './components/Search';
+import TweetList from './components/TweetList';
+import API from './Api';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { searchText: '' };
+    this.state = { searchText: '', tweets: [] };
 
-    this.onSearchChange = this.onSearchChange.bind(this);
+    this.onSearch = this.onSearch.bind(this);
   }
 
-  onSearchChange(searchText) {
+  onSearch(searchText) {
+    const _this = this;
     this.setState({ searchText: searchText });
+    API.search(searchText).then(function (tweets){
+      console.log("Found these tweets: ", tweets);
+      _this.setState({ tweets });
+    });
   }
 
   render() {
@@ -21,9 +28,18 @@ class App extends Component {
           <h2>Tweet search</h2>
         </div>
         <p className="App-intro">
-          Search for a tweet
+          Search for tweets and see the results appear below.
         </p>
-        <Search onChange={this.onSearchChange} searchText={this.state.searchText}/>
+        <Search onSearch={this.onSearch} />
+
+        <div className="search-results">
+          {
+            this.state.searchText ?
+            <TweetList tweets={this.state.tweets} /> :
+            <p className="placeholder">Nothing to show yet, try a search</p>
+          }
+        </div>
+
       </div>
     );
   }
