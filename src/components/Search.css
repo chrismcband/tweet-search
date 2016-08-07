@@ -1,0 +1,27 @@
+.Search {
+  padding: 20px;
+  font-size: 18px;
+}
+
+.Search input {
+  border: 1px solid #999;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 5px 10px;
+  font-size: inherit;
+}
+
+.Search button {
+  border: 1px solid #999;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #1A9FF9;
+  padding: 5px 10px;
+  color: white;
+  font-size: inherit;
+}
