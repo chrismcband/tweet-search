@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './components/Search';
+import SearchTabs from './components/SearchTabs';
 import TweetList from './components/TweetList';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchTweets } from './actions';
-import { searchedTweets } from './selectors';
+import { fetchTweets, setActiveSearch } from './actions';
+import { searchedTweets, searchesAsArray } from './selectors';
 
 class App extends Component {
   render() {
@@ -19,13 +20,22 @@ class App extends Component {
         </p>
         <Search
           onSearch={this.props.fetchTweets}
-          searchText={this.props.searchText}
+          searchText={this.props.activeSearch}
+        />
+
+        <SearchTabs
+          searches={this.props.searches}
+          activeSearch={this.props.activeSearch}
+          onClickTab={this.props.setActiveSearch}
         />
 
         <div className="search-results">
           {
-            this.props.searchText ?
-            <TweetList tweets={this.props.tweets} /> :
+            this.props.activeSearch ?
+            <TweetList
+              tweets={this.props.tweets}
+              isSearching={this.props.isSearching}
+            /> :
             <p className="placeholder">Nothing to show yet, try a search</p>
           }
         </div>
@@ -36,14 +46,19 @@ class App extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  const search = state.searches.searches[state.searches.activeSearch];
+  let isSearching = search && search.isSearching;
+
   return {
     tweets: searchedTweets(state),
-    searchText: state.search.searchText
-  }
+    activeSearch: state.searches.activeSearch,
+    isSearching,
+    searches: searchesAsArray(state)
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return bindActionCreators({ fetchTweets }, dispatch);
+  return bindActionCreators({ fetchTweets, setActiveSearch }, dispatch);
 }
 
 const AppConnected = connect(mapStateToProps, mapDispatchToProps)(App);

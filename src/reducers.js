@@ -27,9 +27,33 @@ function search(state={searchText: '', isSearching: false}, action) {
   }
 }
 
+function searches(state={ activeSearch: '', searches: {} }, action) {
+  switch (action.type) {
+    case actions.SEARCH_FOR_TWEETS_STARTED:
+    case actions.SEARCH_FOR_TWEETS_SUCCESS:
+    case actions.SEARCH_FOR_TWEETS_ERROR:
+      const activeSearch = action.type === actions.SEARCH_FOR_TWEETS_STARTED ?
+        action.searchText : state.activeSearch;
+      const searches = { ...state.searches };
+      searches[action.searchText] = search(searches[action.searchText], action);
+      return {
+        ...state,
+        activeSearch,
+        searches
+      };
+    case actions.SET_ACTIVE_SEARCH:
+      return {
+        ...state,
+        activeSearch: action.searchText
+      };
+    default:
+      return state;
+  }
+}
+
 const reducer = combineReducers({
   tweets,
-  search
+  searches
 });
 
 export default reducer;

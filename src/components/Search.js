@@ -21,6 +21,12 @@ class Search extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.searchText) {
+      this.setState({ searchText: nextProps.searchText });
+    }
+  }
+
   onChange(e) {
     this.setState({ searchText: e.target.value });
   }

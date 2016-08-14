@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import Tweet from './Tweet';
 
 const propTypes = {
-  tweets: PropTypes.array.isRequired
+  tweets: PropTypes.array.isRequired,
+  isSearching: PropTypes.bool.isRequired
 };
 
 const defaultProps = {
@@ -16,7 +17,11 @@ function renderTweets(tweets) {
 function TweetList(props) {
   return (
     <div className="TweetList">
-      {renderTweets(props.tweets)}
+      {
+        props.isSearching ?
+        <p className="placeholder">Searching...</p> :
+        renderTweets(props.tweets)
+      }
     </div>
   );
 }

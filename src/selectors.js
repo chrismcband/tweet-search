@@ -5,7 +5,11 @@ export const tweetsAsArray = state => {
   return ids.map(id => state.tweets[id]);
 }
 
-export const searchText = state => state.search.searchText;
+export const searchText = state => state.searches.activeSearch;
+
+export const searchesAsArray = state => {
+  return Object.keys(state.searches.searches);
+}
 
 export const searchedTweets = createSelector(
   tweetsAsArray,
