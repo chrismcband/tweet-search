@@ -43,7 +43,7 @@ class App extends Component {
         <div className="search-results">
           {
             this.props.error ?
-            <p classname="error">{error}</p> : null
+            <p classname="error">{this.props.error}</p> : null
           }
           {
             this.props.activeSearch ?
