@@ -5,10 +5,21 @@ import SearchTabs from './components/SearchTabs';
 import TweetList from './components/TweetList';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchTweets, setActiveSearch } from './actions';
+import { searchForTweetsStarted, fetchTweets, setActiveSearch }
+  from './actions';
 import { searchedTweets, searchesAsArray } from './selectors';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.onSearch = this.onSearch.bind(this);
+  }
+
+  onSearch(searchText) {
+    this.props.searchForTweetsStarted(searchText);
+    this.props.fetchTweets(searchText);
+  }
+
   render() {
     return (
       <div className="App">
@@ -19,7 +30,7 @@ class App extends Component {
           Search for tweets and see the results appear below.
         </p>
         <Search
-          onSearch={this.props.fetchTweets}
+          onSearch={this.onSearch}
           searchText={this.props.activeSearch}
         />
 
@@ -58,7 +69,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return bindActionCreators({ fetchTweets, setActiveSearch }, dispatch);
+  return bindActionCreators(
+    { searchForTweetsStarted, fetchTweets, setActiveSearch },
+    dispatch
+  );
 }
 
 const AppConnected = connect(mapStateToProps, mapDispatchToProps)(App);

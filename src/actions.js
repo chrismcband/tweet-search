@@ -9,34 +9,15 @@ export function searchForTweetsStarted(searchText) {
   };
 }
 
+export const SEARCH_FOR_TWEETS = 'SEARCH_FOR_TWEETS';
+
 export function fetchTweets(searchText) {
-  return function(dispatch) {
-    dispatch(searchForTweetsStarted(searchText));
-    api.search(searchText).then(function (tweets){
-      dispatch(searchForTweetsSuccess(searchText, tweets));
-    }).catch(function(error){
-      dispatch(searchForTweetsError(searchText, error));
-    });
-  };
-}
-
-export const SEARCH_FOR_TWEETS_SUCCESS = 'SEARCH_FOR_TWEETS_SUCCESS';
-
-export function searchForTweetsSuccess(searchText, tweets) {
   return {
-    type: SEARCH_FOR_TWEETS_SUCCESS,
-    searchText,
-    tweets
-  };
-}
-
-export const SEARCH_FOR_TWEETS_ERROR = 'SEARCH_FOR_TWEETS_ERROR';
-
-export function searchForTweetsError(searchText, error) {
-  return {
-    type: SEARCH_FOR_TWEETS_SUCCESS,
-    searchText,
-    error
+    type: SEARCH_FOR_TWEETS,
+    payload: api.search(searchText),
+    meta: {
+      searchText
+    }
   };
 }
 
