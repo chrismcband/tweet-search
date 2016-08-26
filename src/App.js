@@ -42,6 +42,10 @@ class App extends Component {
 
         <div className="search-results">
           {
+            this.props.error ?
+            <p classname="error">{error}</p> : null
+          }
+          {
             this.props.activeSearch ?
             <TweetList
               tweets={this.props.tweets}
@@ -63,6 +67,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     tweets: searchedTweets(state),
     activeSearch: state.searches.activeSearch,
+    error: state.searches.error,
     isSearching,
     searches: searchesAsArray(state)
   };

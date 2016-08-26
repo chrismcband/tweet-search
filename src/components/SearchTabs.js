@@ -18,7 +18,7 @@ function SearchTabs(props) {
         function onClick(){
           props.onClickTab(search);
         }
-        return (<li className={className} onClick={onClick}>{search}</li>);
+        return (<li key={search} className={className} onClick={onClick}>{search}</li>);
       })}
     </ul>
   );

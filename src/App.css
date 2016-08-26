@@ -29,6 +29,11 @@
   color: grey;
 }
 
+.search-resuls .error {
+  font-style: italic;
+  color: red;
+}
+
 @media (max-width: 500px) {
   .search-results {
     width: 100%;

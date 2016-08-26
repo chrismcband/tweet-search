@@ -5,7 +5,6 @@ function tweets(state={}, action) {
   switch (action.type) {
     case actions.SEARCH_FOR_TWEETS:
       if (action.error) {
-        // TODO handle error
         return state;
       }
 
@@ -34,18 +33,32 @@ function search(state={searchText: '', isSearching: false}, action) {
 function searches(state={ activeSearch: '', searches: {} }, action) {
   switch (action.type) {
     case actions.SEARCH_FOR_TWEETS_STARTED:
-    case actions.SEARCH_FOR_TWEETS:
-      const activeSearch = action.type === actions.SEARCH_FOR_TWEETS_STARTED ?
-        action.searchText : state.activeSearch;
-      const searches = { ...state.searches };
-      const searchText = action.type === actions.SEARCH_FOR_TWEETS_STARTED ?
-        action.searchText : action.meta.searchText;
-      searches[searchText] = search(searches[searchText], action);
       return {
         ...state,
-        activeSearch,
-        searches
+        activeSearch: action.searchText,
+        searches: {
+          ...state.searches,
+          [action.searchText]:
+            search(state.searches[action.searchText], action)
+        }
       };
+    case actions.SEARCH_FOR_TWEETS:
+      if (action.error) {
+        return {
+          ...state,
+          error: action.error
+        };
+      } else {
+        const searchText = action.meta.searchText;
+        return {
+          ...state,
+          error: null,
+          searches: {
+            ...state.searches,
+            [searchText]: search(state.searches[searchText], action)
+          }
+        };
+      }
     case actions.SET_ACTIVE_SEARCH:
       return {
         ...state,
