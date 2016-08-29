@@ -20,6 +20,21 @@ class App extends Component {
     this.props.fetchTweets(searchText);
   }
 
+  renderResults() {
+    if (this.props.activeSearch && this.props.tweets.length) {
+      return (
+        <TweetList
+          tweets={this.props.tweets}
+          isSearching={this.props.isSearching}
+        />
+      );
+    } else {
+      return (
+        <p className="placeholder">Nothing to show yet, try a search</p>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -43,15 +58,8 @@ class App extends Component {
         <div className="search-results">
           {
             this.props.error ?
-            <p classname="error">{this.props.error}</p> : null
-          }
-          {
-            this.props.activeSearch ?
-            <TweetList
-              tweets={this.props.tweets}
-              isSearching={this.props.isSearching}
-            /> :
-            <p className="placeholder">Nothing to show yet, try a search</p>
+            <p className="error">{this.props.error}</p> :
+            this.renderResults()
           }
         </div>
 

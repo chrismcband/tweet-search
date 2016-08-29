@@ -43,26 +43,20 @@ function searches(state={ activeSearch: '', searches: {} }, action) {
         }
       };
     case actions.SEARCH_FOR_TWEETS:
-      if (action.error) {
-        return {
-          ...state,
-          error: action.error
-        };
-      } else {
-        const searchText = action.meta.searchText;
-        return {
-          ...state,
-          error: null,
-          searches: {
-            ...state.searches,
-            [searchText]: search(state.searches[searchText], action)
-          }
-        };
-      }
+      const searchText = action.meta.searchText;
+      return {
+        ...state,
+        error: action.error ? action.payload.message : null,
+        searches: {
+          ...state.searches,
+          [searchText]: search(state.searches[searchText], action)
+        }
+      };
     case actions.SET_ACTIVE_SEARCH:
       return {
         ...state,
-        activeSearch: action.searchText
+        activeSearch: action.searchText,
+        error: null
       };
     default:
       return state;
