@@ -5,19 +5,30 @@ import SearchTabs from './components/SearchTabs';
 import TweetList from './components/TweetList';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { searchForTweetsStarted, fetchTweets, setActiveSearch }
-  from './actions';
+import { searchForTweetsRequested, setActiveSearch } from './actions';
 import { searchedTweets, searchesAsArray } from './selectors';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.onSearch = this.onSearch.bind(this);
+
+  renderError() {
+    return (
+      <p className="error">{this.props.error}</p>
+    );
   }
 
-  onSearch(searchText) {
-    this.props.searchForTweetsStarted(searchText);
-    this.props.fetchTweets(searchText);
+  renderSearchResults() {
+    if (this.props.activeSearch) {
+      return (
+        <TweetList
+          tweets={this.props.tweets}
+          isSearching={this.props.isSearching}
+        />
+      );
+    } else {
+      return (
+        <p className="placeholder">Nothing to show yet, try a search</p>
+      );
+    }
   }
 
   render() {
@@ -30,7 +41,7 @@ class App extends Component {
           Search for tweets and see the results appear below.
         </p>
         <Search
-          onSearch={this.onSearch}
+          onSearch={this.props.searchForTweetsRequested}
           searchText={this.props.activeSearch}
         />
 
@@ -41,18 +52,7 @@ class App extends Component {
         />
 
         <div className="search-results">
-          {
-            this.props.error ?
-            <p classname="error">{this.props.error}</p> : null
-          }
-          {
-            this.props.activeSearch ?
-            <TweetList
-              tweets={this.props.tweets}
-              isSearching={this.props.isSearching}
-            /> :
-            <p className="placeholder">Nothing to show yet, try a search</p>
-          }
+          {this.props.error ? this.renderError() : this.renderSearchResults()}
         </div>
 
       </div>
@@ -75,7 +75,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return bindActionCreators(
-    { searchForTweetsStarted, fetchTweets, setActiveSearch },
+    { searchForTweetsRequested, setActiveSearch },
     dispatch
   );
 }

@@ -3,13 +3,9 @@ import * as actions from './actions';
 
 function tweets(state={}, action) {
   switch (action.type) {
-    case actions.SEARCH_FOR_TWEETS:
-      if (action.error) {
-        return state;
-      }
-
+    case actions.SEARCH_FOR_TWEETS_SUCCESS:
       const newState = { ...state };
-      action.payload.forEach(tweet => {
+      action.tweets.forEach(tweet => {
         newState[tweet.id] = tweet;
       });
 
@@ -21,9 +17,10 @@ function tweets(state={}, action) {
 
 function search(state={searchText: '', isSearching: false}, action) {
   switch (action.type) {
-    case actions.SEARCH_FOR_TWEETS_STARTED:
+    case actions.SEARCH_FOR_TWEETS_REQUESTED:
       return { ...state, searchText: action.searchText, isSearching: true };
-    case actions.SEARCH_FOR_TWEETS:
+    case actions.SEARCH_FOR_TWEETS_SUCCESS:
+    case actions.SEARCH_FOR_TWEETS_ERROR:
       return { ...state, isSearching: false };
     default:
       return state;
@@ -32,7 +29,7 @@ function search(state={searchText: '', isSearching: false}, action) {
 
 function searches(state={ activeSearch: '', searches: {} }, action) {
   switch (action.type) {
-    case actions.SEARCH_FOR_TWEETS_STARTED:
+    case actions.SEARCH_FOR_TWEETS_REQUESTED:
       return {
         ...state,
         activeSearch: action.searchText,
@@ -42,23 +39,20 @@ function searches(state={ activeSearch: '', searches: {} }, action) {
             search(state.searches[action.searchText], action)
         }
       };
-    case actions.SEARCH_FOR_TWEETS:
-      if (action.error) {
-        return {
-          ...state,
-          error: action.error
-        };
-      } else {
-        const searchText = action.meta.searchText;
-        return {
-          ...state,
-          error: null,
-          searches: {
-            ...state.searches,
-            [searchText]: search(state.searches[searchText], action)
-          }
-        };
-      }
+    case actions.SEARCH_FOR_TWEETS_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        searches: {
+          ...state.searches,
+          [action.searchText]: search(state.searches[action.searchText], action)
+        }
+      };
+    case actions.SEARCH_FOR_TWEETS_ERROR:
+      return {
+        ...state,
+        error: action.error
+      };
     case actions.SET_ACTIVE_SEARCH:
       return {
         ...state,
