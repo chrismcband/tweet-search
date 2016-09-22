@@ -10,3 +10,16 @@
 .Tweet__header {
   position: relative;
 }
+
+.Tweet_image {
+  border-radius: 5px;
+  /*width: 95%;*/
+  float: right;
+  clear: left;
+  margin-bottom: 5px;
+}
+
+.Tweet_text {
+  clear:both;
+  margin-left: 20px;
+}

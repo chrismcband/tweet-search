@@ -17,6 +17,10 @@ let store = createStore(reducer,
   )
 );
 
+// store.subscribe(() => {
+//   console.log('-->', store.getState().tweets);
+// })
+
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
