@@ -33,7 +33,7 @@ class Search extends Component {
 
   onSubmit(e) {
     this.props.onSearch(this.state.searchText);
-    e.preventDefault();
+    e.preventDefault(); // when we get the object, what happens to it?
   }
 
   render() {
