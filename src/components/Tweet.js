@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react';
 import TweetAuthor from './TweetAuthor';
-import './Tweet.css';
+import './style/Tweet.css';
 
 const propTypes = {
-  tweet: PropTypes.object.isRequired
+  tweet: PropTypes.object.isRequired,
+  showModal: PropTypes.func.isRequired
 };
 
 function Tweet(props) {
   return (
     <div className="Tweet">
-      <TweetAuthor user={props.tweet.user} />
+      <TweetAuthor user={props.tweet.user} showModal={props.showModal} />
 
       <div className="Tweet__message">
         {props.tweet.text}

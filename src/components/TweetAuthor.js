@@ -1,22 +1,27 @@
 import React, { PropTypes } from 'react';
-import './TweetAuthor.css';
+// import './style/TweetAuthor.css';
 
 const propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  showModal: PropTypes.func.isRequired
 }
 
 function TweetAuthor(props) {
+  function onClick(){
+    props.showModal(props.user)
+  }
   return (
     <div className="TweetAuthor">
       <div className="TweetAuthor__avatar">
-        <img
+        <img className="avatar"
           src={props.user.profile_image_url}
           alt={`Avatar for ${props.user.screen_name}`}
-        />
+          onClick={onClick}
+          />
       </div>
       <div className="TweetAuthor__name_container">
-        <div className="TweetAuthor__name">{props.user.name}</div>
-        <span className="TweetAuthor__screen_name">{props.user.screen_name}</span>
+        <p className="TweetAuthor__name" onClick={onClick}>{props.user.name}</p>
+        <span className="TweetAuthor__screen_name" onClick={onClick}>{props.user.screen_name}</span>
       </div>
 
     </div>

@@ -5,7 +5,9 @@
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-jest": "^16.0.0",
+    "enzyme": "^2.4.1",
     "jest": "^16.0.1",
+    "react-addons-test-utils": "^15.3.2",
     "react-scripts": "0.2.1",
     "react-test-renderer": "^15.3.2",
     "redux-devtools": "^3.3.1"
@@ -30,6 +32,7 @@
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "verbose": true,
     "testEnvironment": "node"
+
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"

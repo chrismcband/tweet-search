@@ -1,6 +1,6 @@
 import * as actions from './actions';
 
-function Modal(state=null, action) {
+export function modal(state=null, action) {
   switch (action.type) {
     case actions.SHOW_MODAL:
       return action.payload
@@ -11,5 +11,3 @@ function Modal(state=null, action) {
       return state
   }
 }
-
-export default Modal;

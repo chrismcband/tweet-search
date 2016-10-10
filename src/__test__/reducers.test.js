@@ -1,14 +1,18 @@
-import Modal from '../reducer_modal'
+import modal from '../reducer_modal'
 
 describe('modal reducer', () => {
 
-  it('should handle SHOW_USER and return user', () => {
+  it('should return the initial state for other actions', () => {
+    expect(modal(null, 'SET_ACTIVE_SEARCH')).toEqual(null)
+  })
+
+  it('should handle SHOW_MODAL and return user', () => {
     const user = "user"
-    expect(Modal(user, 'SHOW_USER')).toEqual(user)
+    expect(modal(user, 'SHOW_MODAL')).toEqual(user)
   })
 
   it('should handle HIDE_USER', () => {
-    expect(Modal(null, 'SHOW_USER')).toEqual(null)
+    expect(modal(null, 'HIDE_MODAL')).toEqual(null)
   })
 
 })
