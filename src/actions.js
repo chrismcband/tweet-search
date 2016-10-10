@@ -35,3 +35,13 @@ export function setActiveSearch(searchText) {
     searchText
   };
 }
+
+export const SHOW_MODAL = 'SHOW_MODAL';
+
+export function showModal(user) {
+
+  return {
+    type: SHOW_MODAL,
+    payload: user
+  };
+}
