@@ -9,6 +9,7 @@ function ModalContent(props) {
   return (
     <div className="modal-display">
       <span className="name">{props.user.name}</span>
+      <p className="screen-name">{props.user.screen_name}</p>
     </div>
   );
 }

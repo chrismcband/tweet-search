@@ -1,0 +1,13 @@
+exports[`ModalContent component renders user info correctly renders correctly 1`] = `
+<div
+  className="modal-display">
+  <span
+    className="name">
+    Michelle Obama
+  </span>
+  <p
+    className="screen-name">
+    miche2007
+  </p>
+</div>
+`;
