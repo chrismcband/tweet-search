@@ -1,13 +1,60 @@
 exports[`ModalContent component renders user info correctly renders correctly 1`] = `
 <div
   className="modal-display">
-  <span
-    className="name">
-    Michelle Obama
-  </span>
+  <img
+    className="banner"
+    src={undefined} />
+  <div
+    className="flex user-elements">
+    <img
+      className="avatar"
+      src="https://pbs.twimg.com/profile_images/582941615741775873/Lc1Awfhp_bigger.jpg" />
+    <div
+      className="info user-name-location">
+      <h4>
+        Michelle Obama
+      </h4>
+      <h5>
+        miche2007
+      </h5>
+      <h6>
+        Washington DC
+      </h6>
+    </div>
+    <div
+      className="info stats">
+      <p
+        className="stats-title">
+        FRIENDS
+      </p>
+      <span>
+        50000
+      </span>
+    </div>
+    <div
+      className="info stats">
+      <p
+        className="stats-title">
+        FOLLOWERS
+      </p>
+      <span>
+        999
+      </span>
+    </div>
+    <div
+      className="info stats">
+      <p
+        className="stats-title">
+        STATUSES
+      </p>
+      <span>
+        300
+      </span>
+    </div>
+  </div>
   <p
-    className="screen-name">
-    miche2007
+    className="description">
+    They go low, you go high
   </p>
 </div>
 `;

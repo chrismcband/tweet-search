@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ModalContent from './ModalContent';
-import './style/Modal.css';
+// import './style/Modal.css';
 
 export class Modal extends Component {
 
