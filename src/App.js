@@ -3,6 +3,7 @@ import './App.css';
 import Search from './components/Search';
 import SearchTabs from './components/SearchTabs';
 import TweetList from './components/TweetList';
+import Modal from './components/Modal';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { searchForTweetsRequested, setActiveSearch, showModal, hideModal } from './actions';
@@ -35,6 +36,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Modal
+          selectedUser={this.props.selectedUser}
+          hideModal={this.props.hideModal}
+        />
         <div className="App-header">
           <h2>Tweet search</h2>
         </div>

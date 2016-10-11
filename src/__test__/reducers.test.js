@@ -1,4 +1,4 @@
-import modal from '../reducer_modal'
+import { modal } from '../reducer_modal'
 
 describe('modal reducer', () => {
 

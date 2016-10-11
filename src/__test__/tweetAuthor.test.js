@@ -17,7 +17,7 @@ function setup() {
 }
 
 describe('<TweetAuthor />', () => {
-  it('renders three <TweetAuthor /> components', () => {
+  it('renders <TweetAuthor /> components', () => {
     const { wrapper } = setup()
     expect(wrapper.find('img').hasClass('avatar')).toBe(true)
     expect(wrapper.find('span').hasClass('TweetAuthor__screen_name')).toBe(true)
@@ -42,5 +42,4 @@ describe('<TweetAuthor />', () => {
     expect(props.showModal.mock.calls.length).toBe(1);
   });
 
-
-})
+});
