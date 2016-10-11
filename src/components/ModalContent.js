@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import './style/ModalContent.css';
 
 const propTypes = {
   user: PropTypes.object.isRequired,
@@ -6,7 +7,9 @@ const propTypes = {
 
 function ModalContent(props) {
   return (
-    <div className="modal-content"></div>
+    <div className="modal-display">
+      <span className="name">{props.user.name}</span>
+    </div>
   );
 }
 
