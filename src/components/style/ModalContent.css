@@ -1,4 +1,4 @@
-.modal-display{
+.modal-display {
   background-color: white;
   position: absolute;
   margin: 0 auto;
@@ -13,4 +13,73 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+
+.elements {
+  margin: -40px 10px 2px 8px;
+}
+
+.banner {
+  width: 100%;
+  min-height: 40px;
+}
+
+.avatar {
+  border: 2px solid white;
+  border-radius: 6px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 470px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1em;
+  & span {
+    margin: .25em 0;
+  }
+}
+
+.user-name-location {
+  margin-left: 0px;
+}
+
+.name{
+  margin-top: 50px;
+}
+
+.screen-name {
+  margin-top: -18px;
+}
+
+.location {
+  margin-top: -18px;
+}
+
+.stats {
+  margin: 0 0 -3px -3px;
+  text-align: center;
+}
+
+.stats-title {
+  font-size: 12px;
+  color: #8d9daa;
+  }
+
+.stats-figures {
+  color: #007baf;
+  margin-top: -8px;
+}
+
+.description {
+  text-align: left;
+  font-size: 12px;
+  display: flex;
+  display: inline-flex;
+  margin: -50px 0 14px 8px;
 }
