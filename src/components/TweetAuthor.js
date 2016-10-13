@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-// import './style/TweetAuthor.css';
+import './style/TweetAuthor.css';
 
 const propTypes = {
   user: PropTypes.object.isRequired,

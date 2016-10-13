@@ -1,16 +1,9 @@
 .modal-display {
   background-color: white;
   position: absolute;
-  margin: 0 auto;
-  max-width: 470px;
-  left: 0;
-  right: 0;
-  top: 280px;
-  overflow: auto;
+  align: center;
+  top: 32%;
   border-radius: 6px;
-  z-index: 3;
-  text-align: left;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
@@ -20,8 +13,11 @@
 }
 
 .banner {
-  width: 100%;
+  max-width: 470px;
+  min-width: 470px;
   min-height: 40px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 }
 
 .avatar {
@@ -47,6 +43,7 @@
 
 .user-name-location {
   margin-left: 0px;
+  text-align: left;
 }
 
 .name{
@@ -62,12 +59,12 @@
 }
 
 .stats {
-  margin: 0 0 -3px -3px;
+  margin: 0px 0 -3px -3px;
   text-align: center;
 }
 
 .stats-title {
-  font-size: 12px;
+  font-size: 11px;
   color: #8d9daa;
   }
 
@@ -79,7 +76,6 @@
 .description {
   text-align: left;
   font-size: 12px;
-  display: flex;
-  display: inline-flex;
-  margin: -50px 0 14px 8px;
+  max-width: 440px;
+  margin: 0 0 16px 10px;
 }

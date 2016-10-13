@@ -25,10 +25,12 @@
 
 .TweetAuthor__name {
   font-weight: bold;
+  margin-top: -0px;
 }
 
 .TweetAuthor__screen_name {
   display: inline-block;
   font-size: 1em;
   color: grey;
+  margin-top: -15px;
 }
