@@ -11,6 +11,8 @@ const defaultProps = {
   tweets: []
 };
 
+
+
 function renderTweets(tweets, showUserModal) {
   return tweets.map(tweet => <Tweet tweet={tweet} key={tweet.id} showUserModal={showUserModal}/>);
 }

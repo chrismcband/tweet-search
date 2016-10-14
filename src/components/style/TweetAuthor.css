@@ -12,6 +12,7 @@
   overflow: hidden;
   background: white;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .TweetAuthor img {
@@ -26,6 +27,7 @@
 .TweetAuthor__name {
   font-weight: bold;
   margin-top: -0px;
+  cursor: pointer;
 }
 
 .TweetAuthor__screen_name {
@@ -33,4 +35,5 @@
   font-size: 1em;
   color: grey;
   margin-top: -15px;
+  cursor: pointer;
 }

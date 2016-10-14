@@ -7,6 +7,7 @@
   flex-direction: column;
   max-width: 475px;
   min-width: 475px;
+  cursor: default;
 }
 
 .elements {
@@ -24,7 +25,7 @@
 .avatar {
   border: 0.13em solid white;
   border-radius: 0.36em;
-  margin-left: -0.3em;
+  margin-left: -0.5em;
   max-width: 4em;
   max-height: 4em;
 }
@@ -51,7 +52,7 @@
 }
 
 .user-name-location {
-  margin-left: .6em;
+  margin-left: 1.3em;
   text-align: left;
 }
 
@@ -75,6 +76,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 0 -0.1em 0 -0.2em;
 }
 
 .stats-title {
@@ -101,20 +103,31 @@
     min-width: 92%
   }
   .avatar-user-name-location{
-    width: 100%
+    width: 100%;
+    margin-top: 0.3em;
+  }
+  .user-name-location{
+    margin:-0.2em 0 0 0.7em;
   }
   .stats-title-figures{
     width: 100%;
-    margin-top: -0.4em;
+    margin-top: -0.6em;
   }
   .avatar{
     width: 50%;
     height: 50%;
+    margin: 0.3em 0 0 0.3em;
   }
   .stats {
-    margin: -1em 1.86em 0.5em 1.86em;
+    margin: -0.7em 1.86em 0.5em 1.86em;
   }
   .description {
-    margin-top: 0.2em;
+    margin: -0.2em 0 0.3em -0.1em;
+  }
+  .screen-name {
+    margin-top: -1.5em;
+  }
+  .name {
+    margin-top: 1.8em;
   }
 }
