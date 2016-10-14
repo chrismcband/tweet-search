@@ -1,11 +1,11 @@
 import * as actions from './actions';
 
-export function modal(state=null, action) {
+export function selectedUser(state=null, action) {
   switch (action.type) {
-    case actions.SHOW_MODAL:
+    case actions.SHOW_USER_MODAL:
       return action.payload
 
-    case actions.HIDE_MODAL:
+    case actions.HIDE_USER_MODAL:
       return null
     default:
       return state

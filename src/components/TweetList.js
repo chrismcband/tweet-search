@@ -4,15 +4,15 @@ import Tweet from './Tweet';
 const propTypes = {
   tweets: PropTypes.array.isRequired,
   isSearching: PropTypes.bool.isRequired,
-  showModal: PropTypes.func.isRequired
+  showUserModal: PropTypes.func.isRequired
 };
 
 const defaultProps = {
   tweets: []
 };
 
-function renderTweets(tweets, showModal) {
-  return tweets.map(tweet => <Tweet tweet={tweet} key={tweet.id} showModal={showModal}/>);
+function renderTweets(tweets, showUserModal) {
+  return tweets.map(tweet => <Tweet tweet={tweet} key={tweet.id} showUserModal={showUserModal}/>);
 }
 
 function TweetList(props) {
@@ -22,7 +22,7 @@ function TweetList(props) {
       {
         props.isSearching ?
         <p className="placeholder">Searching...</p> :
-        renderTweets(props.tweets, props.showModal)
+        renderTweets(props.tweets, props.showUserModal)
       }
     </div>
   );

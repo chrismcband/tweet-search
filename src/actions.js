@@ -36,21 +36,21 @@ export function setActiveSearch(searchText) {
   };
 }
 
-export const SHOW_MODAL = 'SHOW_MODAL';
+export const SHOW_USER_MODAL = 'SHOW_USER_MODAL';
 
-export function showModal(user) {
+export function showUserModal(user) {
 
   return {
-    type: SHOW_MODAL,
+    type: SHOW_USER_MODAL,
     payload: user
   };
 }
 
-export const HIDE_MODAL = 'HIDE_MODAL';
+export const HIDE_USER_MODAL = 'HIDE_USER_MODAL';
 
-export function hideModal() {
+export function hideUserModal() {
 
   return {
-    type: HIDE_MODAL,
+    type: HIDE_USER_MODAL,
   };
 }

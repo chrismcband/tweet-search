@@ -11,7 +11,7 @@ function Modal(props) {
   else {
     return (
       <div>
-        <div className="modal-overlay" onClick={() => props.hideModal()}>
+        <div className="modal-overlay" onClick={() => props.hideUserModal()}>
           <ModalContent user={user}/>
         </div>
       </div>

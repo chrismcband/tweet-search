@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import * as actions from './actions';
-import { modal } from './reducer_modal';
+import { selectedUser } from './reducer_selectedUser';
 
 function tweets(state={}, action) {
   switch (action.type) {
@@ -67,7 +67,7 @@ function searches(state={ activeSearch: '', searches: {} }, action) {
 const reducer = combineReducers({
   tweets,
   searches,
-  selectedUser: modal
+  selectedUser
 });
 
 export default reducer;
