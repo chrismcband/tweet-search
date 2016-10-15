@@ -1,0 +1,72 @@
+exports[`ModalContent component renders user info correctly renders correctly 1`] = `
+<div
+  className="modal-display"
+  onClick={[Function onClick]}>
+  <img
+    alt="user-banner"
+    className="banner"
+    src={undefined} />
+  <div
+    className="elements">
+    <div
+      className="flex user-elements">
+      <img
+        alt="user-avatar"
+        className="avatar"
+        src="https://pbs.twimg.com/profile_images/582941615741775873/Lc1Awfhp_bigger.jpg" />
+      <div
+        className="info user-name-location">
+        <h4
+          className="name">
+          Michelle Obama
+        </h4>
+        <h5
+          className="screen-name">
+          miche2007
+        </h5>
+        <h6
+          className="location">
+          Washington DC
+        </h6>
+      </div>
+      <div
+        className="info stats">
+        <p
+          className="stats-title">
+          FRIENDS
+        </p>
+        <span
+          className="stats-figures">
+          50000
+        </span>
+      </div>
+      <div
+        className="info stats">
+        <p
+          className="stats-title">
+          FOLLOWERS
+        </p>
+        <span
+          className="stats-figures">
+          999
+        </span>
+      </div>
+      <div
+        className="info stats">
+        <p
+          className="stats-title">
+          STATUSES
+        </p>
+        <span
+          className="stats-figures">
+          300
+        </span>
+      </div>
+    </div>
+    <p
+      className="description">
+      They go low, you go high
+    </p>
+  </div>
+</div>
+`;
