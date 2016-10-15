@@ -1,18 +1,30 @@
 import React from 'react';
- import { shallow, mount } from 'enzyme';
--import { Modal }  from '../components/Modal';
-+import Modal  from '../components/Modal';
+import { shallow } from 'enzyme';
+import { Modal } from '../components/Modal';
 
- function setup() {
-   const props = {
-@@ -29,8 +29,8 @@ describe('<Modal />', () => {
-   });
+function setup() {
+  const props = {
+    hideUserModal: jest.fn(),
+    selectedUser: {
+      name: "Michelle Obama",
+      screen_name: "miche2007",
+      location: "Washington DC"
+    }
+  }
+  const wrapper = shallow(<Modal {...props} />)
 
-   it('displays modal content', () => {
--    const { wrapper, enzymeWrapper } = setup();
--    expect( enzymeWrapper.find('div').hasClass('modal-content')).toBe(true)
-+    const { wrapper } = setup();
-+    expect(wrapper.find('div').hasClass('modal-content')).toBe(true)
-   })
+  return {
+    props,
+    wrapper
+  }
+}
 
-   it('closes the modal overlay when clicked on', () => {
+describe('Modal', () => {
+
+  it('closes the modal overlay when clicked on', () => {
+     const { wrapper, props } = setup();
+     wrapper.find('.modal-overlay').simulate('click');
+     expect(props.hideUserModal.mock.calls.length).toBe(1);
+  });
+
+});
