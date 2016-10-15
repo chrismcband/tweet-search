@@ -1,21 +1,21 @@
-import { showModal, SHOW_MODAL, hideModal, HIDE_MODAL } from '../actions';
+import { showUserModal, SHOW_USER_MODAL, hideUserModal, HIDE_USER_MODAL } from '../actions';
 
-describe('showModal', () => {
+describe('showUserModal', () => {
   it('should create an action to show a modal', () => {
     const user = "user"
     const expectedAction = {
-      type: SHOW_MODAL,
+      type: SHOW_USER_MODAL,
       payload: user
     }
-    expect(showModal(user)).toEqual(expectedAction)
+    expect(showUserModal(user)).toEqual(expectedAction)
   })
 })
 
-describe('hideModal', () => {
+describe('hideUSerModal', () => {
   it('should create an action to hide a modal', () => {
     const expectedAction = {
-      type: HIDE_MODAL
+      type: HIDE_USER_MODAL
     }
-    expect(hideModal()).toEqual(expectedAction)
+    expect(hideUserModal()).toEqual(expectedAction)
   })
 })

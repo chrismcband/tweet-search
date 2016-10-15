@@ -5,7 +5,11 @@ import TweetAuthor from '../components/TweetAuthor'
 function setup() {
   const props = {
     showModal: jest.fn(),
-    user: 'user'
+    user: {
+      name: "Michelle Obama",
+      screen_name: "miche2007",
+      location: "Washington DC"
+    }
   }
 
   const wrapper = shallow(<TweetAuthor {...props} />)
