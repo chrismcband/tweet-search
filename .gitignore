@@ -11,7 +11,4 @@ build
 # misc
 .DS_Store
 npm-debug.log
-<<<<<<< HEAD
-=======
 coverage
->>>>>>> 4341cb791ad0f0f830241ab18e4c21da21bb4191

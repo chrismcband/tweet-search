@@ -11,14 +11,9 @@
   "dependencies": {
     "es6-promise": "^3.2.1",
     "isomorphic-fetch": "^2.2.1",
-<<<<<<< HEAD
-    "react": "^15.2.1",
     "react-addons-test-utils": "^15.3.2",
-    "react-dom": "^15.2.1",
-=======
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
->>>>>>> 4341cb791ad0f0f830241ab18e4c21da21bb4191
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "redux-saga": "^0.11.1",
