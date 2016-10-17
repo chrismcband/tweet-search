@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import './Search.css';
+import './style/Search.css';
 
 const propTypes = {
   searchText: PropTypes.string.isRequired,

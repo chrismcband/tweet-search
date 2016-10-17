@@ -3,9 +3,10 @@ import './App.css';
 import Search from './components/Search';
 import SearchTabs from './components/SearchTabs';
 import TweetList from './components/TweetList';
+import Modal from './components/Modal';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { searchForTweetsRequested, setActiveSearch } from './actions';
+import { searchForTweetsRequested, setActiveSearch, showUserModal, hideUserModal } from './actions';
 import { searchedTweets, searchesAsArray } from './selectors';
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
         <TweetList
           tweets={this.props.tweets}
           isSearching={this.props.isSearching}
+          showUserModal={this.props.showUserModal}
         />
       );
     } else {
@@ -34,6 +36,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Modal
+          selectedUser={this.props.selectedUser}
+          hideUserModal={this.props.hideUserModal}
+        />
         <div className="App-header">
           <h2>Tweet search</h2>
         </div>
@@ -69,13 +75,14 @@ const mapStateToProps = (state, ownProps) => {
     activeSearch: state.searches.activeSearch,
     error: state.searches.error,
     isSearching,
-    searches: searchesAsArray(state)
+    searches: searchesAsArray(state),
+    selectedUser: state.selectedUser
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return bindActionCreators(
-    { searchForTweetsRequested, setActiveSearch },
+    { searchForTweetsRequested, setActiveSearch, showUserModal, hideUserModal },
     dispatch
   );
 }

@@ -1,0 +1,133 @@
+.modal-display {
+  background-color: white;
+  position: absolute;
+  top: 32%;
+  border-radius: 0.4em;
+  display: flex;
+  flex-direction: column;
+  max-width: 475px;
+  min-width: 475px;
+  cursor: default;
+}
+
+.elements {
+  margin: -1.5em 0.5em 0.6em 0.8em;
+}
+
+.banner {
+  max-width: 465px;
+  min-width: 100%;
+  min-height: 2.5em;
+  border-top-right-radius: 0.36em;
+  border-top-left-radius: 0.36em;
+}
+
+.avatar {
+  border: 0.13em solid white;
+  border-radius: 0.36em;
+  margin-left: -0.5em;
+  max-width: 4em;
+  max-height: 4em;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1em;
+  & span {
+    margin: .25em 0;
+  }
+}
+
+.avatar-user-name-location{
+  display: flex;
+  flex-direction: row;
+}
+
+.user-name-location {
+  margin-left: 1.3em;
+  text-align: left;
+}
+
+.name{
+  margin-top: 2.3em;
+}
+
+.screen-name {
+  margin-top: -1.1em;
+}
+
+.location {
+  margin-top: -1.7em;
+}
+
+.stats {
+  margin: -0em 0.5em 0em 0.5em;
+}
+
+.stats-title-figures {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 -0.1em 0 -0.2em;
+}
+
+.stats-title {
+  font-size: 0.6rem;
+  color: #8d9daa;
+  }
+
+.stats-figures {
+  color: #007baf;
+  margin: -0.5em 0 .3em 0;
+}
+
+.description {
+  text-align: left;
+  font-size: 0.75rem;
+  word-wrap: break-word;
+  margin: -0.8em 0.5em 1em 0.2em;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 500px) {
+  .modal-display {
+    width: 92%;
+    min-width: 92%
+  }
+  .avatar-user-name-location{
+    width: 100%;
+    margin-top: 0.3em;
+  }
+  .user-name-location{
+    margin:-0.2em 0 0 0.7em;
+  }
+  .stats-title-figures{
+    width: 100%;
+    margin-top: -0.6em;
+  }
+  .avatar{
+    width: 50%;
+    height: 50%;
+    margin: 0.3em 0 0 0.3em;
+  }
+  .stats {
+    margin: -0.7em 1.86em 0.5em 1.86em;
+  }
+  .description {
+    margin: -0.2em 0 0.3em -0.1em;
+  }
+  .screen-name {
+    margin-top: -1.5em;
+  }
+  .name {
+    margin-top: 1.8em;
+  }
+}

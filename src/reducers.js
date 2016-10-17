@@ -63,9 +63,22 @@ function searches(state={ activeSearch: '', searches: {} }, action) {
   }
 }
 
+function selectedUser(state=null, action) {
+  switch (action.type) {
+    case actions.SHOW_USER_MODAL:
+      return action.payload
+
+    case actions.HIDE_USER_MODAL:
+      return null
+    default:
+      return state
+  }
+}
+
 const reducer = combineReducers({
   tweets,
-  searches
+  searches,
+  selectedUser
 });
 
 export default reducer;

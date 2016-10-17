@@ -35,3 +35,22 @@ export function setActiveSearch(searchText) {
     searchText
   };
 }
+
+export const SHOW_USER_MODAL = 'SHOW_USER_MODAL';
+
+export function showUserModal(user) {
+
+  return {
+    type: SHOW_USER_MODAL,
+    payload: user
+  };
+}
+
+export const HIDE_USER_MODAL = 'HIDE_USER_MODAL';
+
+export function hideUserModal() {
+
+  return {
+    type: HIDE_USER_MODAL,
+  };
+}
