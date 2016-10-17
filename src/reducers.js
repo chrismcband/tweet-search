@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import * as actions from './actions';
-import { selectedUser } from './reducer_selectedUser';
 
 function tweets(state={}, action) {
   switch (action.type) {
@@ -61,6 +60,18 @@ function searches(state={ activeSearch: '', searches: {} }, action) {
       };
     default:
       return state;
+  }
+}
+
+function selectedUser(state=null, action) {
+  switch (action.type) {
+    case actions.SHOW_USER_MODAL:
+      return action.payload
+
+    case actions.HIDE_USER_MODAL:
+      return null
+    default:
+      return state
   }
 }
 
