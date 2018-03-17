@@ -4,8 +4,9 @@ This simple app allows you to search for tweets.
 
 Run the live-reload server with `npm start` this will open your default browser at http://localhost:3000
 
-Create a new app on https://dev.twitter.com/ and record the consumer key and secret in a `config.json` file somewhere.
-This file should containing at least the following keys:
+Create a new app on https://apps.twitter.com/ and record the consumer key and secret in a `config.json` file somewhere. Your app can leave the callback, privacy policy and terms of service urls blank. For website put anything in there, we're not allowing other users to log in to twitter, which is why these are not needed. We're only interested in getting a command line twitter proxy to fetch tweets using your own account. Twitter requires signed oauth API requests, to avoid us having to do this in our frontend code, we're using a twitter proxy to simply our requests.
+
+The `config.json` file you create should containing at least the following keys:
 
 ```
 {
